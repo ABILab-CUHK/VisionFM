@@ -97,7 +97,7 @@ Please download the corresponding model weight based on the modality that you wa
 
 ### 3.2.Training a classification decoder [Multi-modality]
 
-The `Multi-modality` means the decoder is trained on different modalities simultaneously. Considering the existence of different encoder (each modality has its own encoder)， 
+The `Multi-modality` means the decoder is trained on different modalities simultaneously. Considering the existence of different encoders (each modality has its own encoder),
 We adopt a two-stage pipeline: `pre-extracting features from VisionFM encoders of different modalities` and `training the decoder using the aggragated image features`:
 
 For the first step, we need to extract image features based on their modalities. For example, we can extract the Fundus and OCT features through Fundus and OCT encoders respectively.
