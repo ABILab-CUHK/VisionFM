@@ -1,0 +1,13 @@
+CUDA_VISIBLE_DEVICES=2,3,4,5 nohup python3 -m torch.distributed.launch --nnodes 1 --node_rank 0 --nproc_per_node=4 --master_addr=127.0.0.1 --master_port=29500 main_pretrain.py \
+--data_path ./dataset/pretrain_random \
+--modality Fundus \
+--norm_last_layer true \
+--epochs 400 \
+--batch_size_per_gpu 12 \
+--shared_head true \
+--out_dim 8192 \
+--output_dir ./results \
+--global_crops_scale 0.32 1.0 \
+--pred_ratio 0 0.3 \
+--pred_ratio_var 0 0.2 \
+--name Train_Random_Fundus --load_pretrain > train_fundus.log 2>&1 &
