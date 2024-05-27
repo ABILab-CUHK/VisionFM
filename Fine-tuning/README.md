@@ -52,7 +52,7 @@ CUDA_VISIBLE_DEVICES=0 nohup python3 -m torch.distributed.launch --nproc_per_nod
 Fine-tuning VisionFM on the rest seven datasets are the same. Please ensure the dataset and output directory paths are correct, and specify a distinct log file name for each dataset. Note that the number of labels `--num_labels` should be adjusted according to the dataset. For the `OCTID` dataset, please change `--modality` to be `OCT`, and download the pre-trained OCT encoder weights from [VisionFM OCT encoder](https://drive.google.com/file/d/1o6E-ine2QLx2pxap-c77u-SU0FjxwypA/view?usp=sharing). For `IDRiD`, `MESSIDOR2`, and `Kaggle APTOS-2019` datasets, fine-tuning 5 epochs are sufficient to produce reasonable results. Longer fine-tuning will lead to overfitting. For other datasets, fine-tuning 100 epochs is suggested.
 
 Alternatively, users can use the following commands to fine-tune and test VisionFM on PAPILA and the rest seven datasets.
-**Please scroll left to display the download links of our fine-tune weights if your screen does not show**
+**Please scroll left to display the download links of our fine-tuned weights if your screen does not show**
 
 
 | Dataset   | Fine-tuning             | Testing | Our fine-tuned weights |
