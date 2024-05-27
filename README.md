@@ -2,7 +2,9 @@
 
 The official implementation of VisionFM - a multimodal multitask vision foundation model, pre-trained using 3.4 million ophthalmic images from over 0.5 million subjects to enable generalist ophthalmic artificial intelligence. VisionFM is able to process eight common ophthalmic imaging modalities including fundus photography, optical coherence tomography (OCT), fundus fluorescein angiography (FFA), slit lamp, B-scan ultrasound, external eye imaging, MRI, and ultrasound biomicroscopy (UBM), and can be applied to solve various ophthalmic AI tasks such as ocular disease recognition, disease progression prediction, segmetation and detection of disease phenotypes and anatomical landmarks, as well as systemic biomarker and disease prediction. Functionality of VisionFM can be further extended beyond the current tasks by self-supervised pre-training of new imaging modalities and supervised fine-tuning of new clinical tasks, with the potential of addressing diverse, global ophthalmic diseases and different clinical challenges.  
 
+## Latest News
 
+- [2024/05] The fine-tuning code has been released, along with fine-tuned weights on eight public multiclass disease recognition datasets
 
 
 ## 1. Install environment
