@@ -4,6 +4,7 @@ The official implementation of VisionFM - a multimodal multitask vision foundati
 
 ## Latest News
 
+- [2024/11] :tada: Congrats! VisionFM has been published in [NEJM AI](https://ai.nejm.org/doi/full/10.1056/AIoa2300221).
 - [2024/05] The fine-tuning code has been released, along with fine-tuned weights on eight public multiclass disease recognition datasets
 
 
