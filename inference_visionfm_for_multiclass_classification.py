@@ -141,7 +141,7 @@ def eval_linear(args):
     model.cuda()
     print(f"Model {args.arch} {args.patch_size}x{args.patch_size} built.")
     # load visionfm pretrained weights
-    utils.load_pretrained_weights(model, args.pretrained_weights, 'visionfm_state_dict', args.arch, args.patch_size)
+    utils.load_pretrained_weights(model, args.pretrained_weights, arge.checkpoint_key, args.arch, args.patch_size)
 
     linear_classifier = ClsHead(embed_dim=embed_dim * 4, num_classes=args.num_labels, layers=3)
     linear_classifier = linear_classifier.cuda()
@@ -149,9 +149,13 @@ def eval_linear(args):
 
     # load the weights
     state_dict = torch.load(args.pretrained_weights, map_location="cpu")
-    state_dict = state_dict['classifier_state_dict']
-    msg = linear_classifier.load_state_dict(state_dict, strict=False)
-    print('Pretrained weights found at {} and loaded with msg: {}'.format(args.pretrained_weights, msg))
+    state_dict = state_dict.get('classifier_state_dict',None)
+    if state_dict is None:
+        print("Cannot find the weights for classifier (decoder). Please refer to our fine-tuning instruction!!")
+        print("The classifier would utlize the random weights!!")
+    else:
+        msg = linear_classifier.load_state_dict(state_dict, strict=False)
+        print('Pretrained weights found at {} and loaded with msg: {}'.format(args.pretrained_weights, msg))
 
     model.eval()
     linear_classifier.eval()
@@ -235,7 +239,7 @@ if __name__ == '__main__':
     parser.add_argument('--window_size', default=7, type=int, help='Window size of the model.')
     parser.add_argument('--pretrained_weights', default='', type=str, help="""Path to pretrained 
         weights""")
-    parser.add_argument("--checkpoint_key", default="teacher", type=str, help='Key to use in the checkpoint (example: "teacher")')
+    parser.add_argument("--checkpoint_key", default="visionfm_state_dict", type=str, help='Key to use in the checkpoint (example: "teacher")')
     parser.add_argument('--epochs', default=100, type=int, help='Number of epochs of finetuning.')
     parser.add_argument("--lr", default=0.001, type=float, help="""Learning rate at the beginning of
         training the classifier""")
