@@ -8,7 +8,7 @@ The official implementation of VisionFM - a multimodal multitask vision foundati
 - [2024/05] The fine-tuning code has been released, along with fine-tuned weights on eight public multiclass disease recognition datasets
 
 
-## 1. Install environment
+## 0. Install environment
 
 Create the environment with conda commands:
 ```shell
@@ -22,6 +22,8 @@ git clone https://github.com/ABILab-CUHK/VisionFM.git
 cd VisionFM
 pip install -r requirments.txt
 ```
+## 1. Finetuning
+If you want to utlize our weights to fine-tune on your data, please refer to this [instruction](./Fine-tuning/README.md).
 
 ## 2. Pretraining
 In this step, you can pretrain your own VisionFM encoders on your data. Please follow the instructions below to start pretraining. 
@@ -533,4 +535,21 @@ CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.launch evaluation/train_for
 ## 4. VisionFM private evaluation data and synthetic images
 
 Synthetic images and a subset of our private evaluation data can be accessed. Please download [the data request and agreement form](resource/visionfm_dataset_agreement_form.pdf), sign and email it to visionfm-datasets@googlegroups.com
+
+## Citation
+If you find this repository useful, please consider citing this paper:
+```text
+@article{qiu2024development,
+  title={Development and validation of a multimodal multitask vision foundation model for generalist ophthalmic artificial intelligence},
+  author={Qiu, Jianing and Wu, Jian and Wei, Hao and Shi, Peilun and Zhang, Minqing and Sun, Yunyun and Li, Lin and Liu, Hanruo and Liu, Hongyi and Hou, Simeng and others},
+  journal={NEJM AI},
+  volume={1},
+  number={12},
+  pages={AIoa2300221},
+  year={2024},
+  publisher={Massachusetts Medical Society}
+}
+```
+## LICENSE
+This project is released under a license that permits use for research and educational purposes only. Commercial use of this model is not allowed. Please ensure that you comply with the terms of this license when using the model. For more information, refer to the LICENSE file included in this repository.
 
